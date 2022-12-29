@@ -30,7 +30,7 @@ app.post("/", function (req, res) {
 
   const jsonData = JSON.stringify(data);
   const server = "us13";
-  const listId = "fc85ccf77e";
+  const listId = process.env.LIST_ID;
 
   const url = `https://${server}.api.mailchimp.com/3.0/lists/${listId}?skip_merge_validation=true&skip_duplicate_check=true`;
 
@@ -63,6 +63,3 @@ app.post("/failure", function (req, res) {
 app.listen(process.env.PORT || 3000, function () {
   console.log("server is up and running on port 3000");
 });
-
-// list id
-// fc85ccf77e
